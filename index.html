@@ -4,22 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Selamat Datang di Toko Kami</title>
-    <link rel="stylesheet" href="styles.css" />
+    
+    <style>
+      /* --- KODE CSS --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #333;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: #2c3e50;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+
+      #currentTime {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 40px;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 10px 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        font-weight: 500;
+      }
+
+      .btn-wa {
+        display: inline-block;
+        background-color: #25d366;
+        color: white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 15px 35px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .btn-wa:hover {
+        background-color: #128c7e;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+      }
+
+      .btn-wa:active {
+        transform: translateY(1px);
+      }
+    </style>
   </head>
   <body>
     <h1 class="title">Selamat Datang di Toko Kami</h1>
     <p id="currentTime"></p>
 
     <!-- Tombol Order WhatsApp -->
-    <a 
-      href="https://wa.me/6285861578096?text=Halo%20kak,%20saya%20mau%20order" 
-      target="_blank" 
-      rel="noopener noreferrer" 
+    <a
+      href="https://wa.me/6285861578096?text=Halo%20kak,%20saya%20mau%20order"
+      target="_blank"
+      rel="noopener noreferrer"
       class="btn-wa"
     >
       Order via WhatsApp
     </a>
 
-    <script src="script.js"></script>
+    <script>
+      // --- KODE JAVASCRIPT ---
+      function updateTime() {
+        const timeElement = document.getElementById('currentTime');
+        const now = new Date();
+
+        const options = {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        };
+
+        const formattedTime = now.toLocaleDateString('id-ID', options);
+        const finalTime = formattedTime.replace(/\./g, ':');
+
+        timeElement.textContent = finalTime;
+      }
+
+      updateTime();
+      setInterval(updateTime, 1000);
+    </script>
   </body>
 </html>
