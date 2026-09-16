@@ -1,110 +1,211 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selamat Datang di Toko Kami</title>
-    
-    <style>
-      /* --- KODE CSS --- */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desainkoiki — Toko & Studio Kreatif</title>
 
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #333;
-      }
-
-      .title {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-        color: #2c3e50;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-      }
-
-      #currentTime {
-        font-size: 1.1rem;
-        color: #555;
-        margin-bottom: 40px;
-        background: rgba(255, 255, 255, 0.7);
-        padding: 10px 20px;
-        border-radius: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        font-weight: 500;
-      }
-
-      .btn-wa {
-        display: inline-block;
-        background-color: #25d366;
-        color: white;
-        text-decoration: none;
-        font-size: 1.2rem;
-        font-weight: bold;
-        padding: 15px 35px;
-        border-radius: 50px;
-        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-        transition: all 0.3s ease;
-      }
-
-      .btn-wa:hover {
-        background-color: #128c7e;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-      }
-
-      .btn-wa:active {
-        transform: translateY(1px);
-      }
-    </style>
-  </head>
-  <body>
-    <h1 class="title">Selamat Datang di Toko Kami</h1>
-    <p id="currentTime"></p>
-
-    <!-- Tombol Order WhatsApp -->
-    <a
-      href="https://wa.me/6285861578096?text=Halo%20kak,%20saya%20mau%20order"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="btn-wa"
-    >
-      Order via WhatsApp
-    </a>
-
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      // --- KODE JAVASCRIPT ---
-      function updateTime() {
-        const timeElement = document.getElementById('currentTime');
-        const now = new Date();
-
-        const options = {
-          weekday: 'long',
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        };
-
-        const formattedTime = now.toLocaleDateString('id-ID', options);
-        const finalTime = formattedTime.replace(/\./g, ':');
-
-        timeElement.textContent = finalTime;
-      }
-
-      updateTime();
-      setInterval(updateTime, 1000);
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            primary: '#432B97',    /* Violet */
+                            light: '#F8F6FF',      /* Light Lavender */
+                            muted: '#62588E',      /* Slate Purple */
+                            accent: '#8C82C7',     /* Muted Purple */
+                            dark: '#281B60',       /* Dark Indigo */
+                            deep: '#35257B'        /* Royal Purple */
+                        }
+                    }
+                }
+            }
+        }
     </script>
-  </body>
+    
+    <!-- Google Fonts: Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-bold tracking-tight text-brand-dark">
+                desain<span class="text-brand-primary">koiki</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+                <a href="#beranda" class="hover:text-brand-primary transition">Beranda</a>
+                <a href="#katalog" class="hover:text-brand-primary transition">Koleksi Produk</a>
+                <a href="#tentang" class="hover:text-brand-primary transition">Tentang Kami</a>
+                <a href="#kontak" class="hover:text-brand-primary transition">Kontak</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <!-- Logo Keranjang Mengarah ke WhatsApp -->
+                <a href="https://wa.me/6285861578096?text=Halo%20kak,%20saya%20mau%20order" target="_blank" aria-label="Keranjang Belanja" class="relative p-3 bg-brand-primary text-white rounded-full hover:bg-brand-deep transition shadow-sm flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative overflow-hidden pt-16 pb-24 lg:pt-28 lg:pb-32 bg-gradient-to-b from-brand-light to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block bg-brand-accent/20 text-brand-primary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6">
+                Koleksi Terbaru 2026
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-brand-dark max-w-3xl mx-auto leading-tight">
+                Estetika Modern untuk Keseharian Anda
+            </h1>
+            <p class="mt-6 text-lg text-brand-muted max-w-xl mx-auto font-normal">
+                Temukan pilihan produk desain berkualitas tinggi, minimalis, dan fungsional eksklusif dari desainkoiki.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#katalog" class="bg-brand-primary text-white px-8 py-3.5 rounded-full font-bold shadow-lg shadow-brand-primary/20 hover:bg-brand-deep transition">
+                    Lihat Katalog
+                </a>
+                <a href="#tentang" class="bg-white border border-brand-accent/30 text-brand-dark px-8 py-3.5 rounded-full font-bold hover:bg-brand-light transition">
+                    Pelajari Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Katalog Produk -->
+    <section id="katalog" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div>
+                <h2 class="text-3xl font-bold tracking-tight text-brand-dark">Produk Pilihan</h2>
+                <p class="mt-2 text-brand-muted">Kurasi terbaik yang dirancang khusus untuk kenyamanan Anda.</p>
+            </div>
+            <div class="mt-4 md:mt-0 flex gap-2">
+                <button class="px-4 py-2 text-sm bg-brand-primary text-white rounded-full font-bold">Semua</button>
+                <button class="px-4 py-2 text-sm bg-white border border-brand-accent/30 text-brand-muted rounded-full hover:bg-brand-light transition">Aksesoris</button>
+                <button class="px-4 py-2 text-sm bg-white border border-brand-accent/30 text-brand-muted rounded-full hover:bg-brand-light transition">Dekorasi</button>
+            </div>
+        </div>
+
+        <!-- Grid Produk -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Produk 1 -->
+            <div class="group bg-white rounded-2xl border border-brand-accent/20 overflow-hidden shadow-sm hover:shadow-md transition">
+                <div class="h-64 bg-brand-light overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80" alt="Produk 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-brand-dark text-xs font-bold px-2.5 py-1 rounded-md">Terlaris</span>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs text-brand-primary font-bold tracking-wider uppercase">Aksesoris</span>
+                    <h3 class="mt-1 text-lg font-bold text-brand-dark">Minimalist Wristwatch</h3>
+                    <p class="mt-2 text-brand-muted text-sm">Jam tangan elegan dengan desain minimalis modern.</p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-brand-dark">Rp 450.000</span>
+                        <a href="https://wa.me/6285861578096?text=Halo%20kak,%20saya%20mau%20order" target="_blank" class="bg-brand-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-brand-deep transition inline-block">Beli</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="group bg-white rounded-2xl border border-brand-accent/20 overflow-hidden shadow-sm hover:shadow-md transition">
+                <div class="h-64 bg-brand-light overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Produk 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6">
+                    <span class="text-xs text-brand-primary font-bold tracking-wider uppercase">Audio</span>
+                    <h3 class="mt-1 text-lg font-bold text-brand-dark">Koiki Wireless Headphones</h3>
+                    <p class="mt-2 text-brand-muted text-sm">Kualitas suara jernih dengan kenyamanan maksimal.</p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-brand-dark">Rp 890.000</span>
+                        <a href="https://wa.me/6285861578096?text=Halo%20kak,%20saya%20mau%20order" target="_blank" class="bg-brand-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-brand-deep transition inline-block">Beli</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="group bg-white rounded-2xl border border-brand-accent/20 overflow-hidden shadow-sm hover:shadow-md transition">
+                <div class="h-64 bg-brand-light overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Produk 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 left-3 bg-red-500 text-white text-xs font-bold px-2.5 py-1 rounded-md">Sale</span>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs text-brand-primary font-bold tracking-wider uppercase">Footwear</span>
+                    <h3 class="mt-1 text-lg font-bold text-brand-dark">Urban Sneaker Pro</h3>
+                    <p class="mt-2 text-brand-muted text-sm">Sepatu kasual yang ringan dan pas untuk gaya harianmu.</p>
+                    <div class="mt-6 flex items-center justify-between">
+                        <span class="text-xl font-extrabold text-brand-dark">Rp 750.000</span>
+                        <a href="https://wa.me/6285861578096?text=Halo%20kak,%20saya%20mau%20order" target="_blank" class="bg-brand-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-brand-deep transition inline-block">Beli</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section -->
+    <section id="tentang" class="bg-brand-dark text-white py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-brand-accent text-xs font-bold uppercase tracking-wider">Tentang Kami</span>
+                <h2 class="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">Membawa Standar Desain Baru ke Rumah Anda</h2>
+                <p class="mt-6 text-white/80 leading-relaxed font-normal">
+                    desainkoiki berdedikasi untuk menyajikan produk-produk yang tidak hanya fungsional, tetapi juga memiliki nilai estetika tinggi. Kami percaya bahwa desain yang baik mampu meningkatkan kualitas hidup sehari-hari.
+                </p>
+                <div class="mt-8 grid grid-cols-2 gap-6 border-t border-brand-deep pt-8">
+                    <div>
+                        <p class="text-3xl font-extrabold text-white">100+</p>
+                        <p class="text-sm text-white/80 mt-1">Produk Kurasi</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-extrabold text-white">10k+</p>
+                        <p class="text-sm text-white/80 mt-1">Pelanggan Puas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Kontak -->
+    <footer id="kontak" class="bg-brand-dark text-white py-16 border-t border-brand-deep">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="space-y-4">
+                <span class="text-2xl font-bold text-white tracking-tight">desain<span class="text-brand-accent">koiki</span></span>
+                <p class="text-sm text-white/80">Destinasi belanja produk estetis, modern, dan berkualitas tinggi.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Navigasi</h4>
+                <ul class="space-y-2 text-sm text-white/80">
+                    <li><a href="#beranda" class="hover:text-white transition">Beranda</a></li>
+                    <li><a href="#katalog" class="hover:text-white transition">Katalog</a></li>
+                    <li><a href="#tentang" class="hover:text-white transition">Tentang</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Dukungan</h4>
+                <ul class="space-y-2 text-sm text-white/80">
+                    <li><a href="#" class="hover:text-white transition">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="hover:text-white transition">Syarat & Ketentuan</a></li>
+                    <li><a href="#" class="hover:text-white transition">Bantuan Pengiriman</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Hubungi Kami</h4>
+                <p class="text-sm text-white/80">Email: hallo@desainkoiki.com</p>
+                <p class="text-sm text-white/80 mt-2">WhatsApp: +62 858-6157-8096</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-brand-deep/60 text-center text-xs text-white/80">
+            &copy; 2026 desainkoiki. Hak cipta dilindungi undang-undang.
+        </div>
+    </footer>
+
+</body>
 </html>
