@@ -1,0 +1,42 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [
+    "server",
+    "db",
+    "user"
+  ],
+  "dev_command": "pnpm run dev",
+  "env_vars": {
+    "DATABASE_URL": "mysql://5kBFyhw33NxbPYb.de39f03ddb4d:AN4un0JN3MDv0j5DP7El@gateway03.us-east-1.prod.aws.tidbcloud.com:4000/UmWQrrhGfRQTwWJa6RJNWH?ssl={\"rejectUnauthorized\":true}"
+  },
+  "experiments": [
+    "no_db_push"
+  ],
+  "git_remote": {
+    "repo_url": "https://7f0548f6b28a1758d9bf7be630d36cb4.artifacts.cloudflare.net/git/prod/UmWQrrhGfRQTwWJa6RJNWH.git",
+    "expiration": "2026-09-12T04:12:59.343Z",
+    "token": "art_v2_x_6690096a05e4d302182e3264e62108cbdc645276?expires=1789186379",
+    "backend": "GIT_BACKEND_ARTIFACTS"
+  },
+  "name": "desain-ko-iki",
+  "path": "/home/ubuntu/desain-ko-iki",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "YCunJjqyJVEGZWA6UrSyLE",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "KDwoqVT2HdVBmWMrZueWxr",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "Legend In Love",
+    "OWNER_OPEN_ID": "3jkZwbSw6uJZEa7ymuMUeH",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "353daf1e-5e87-4b87-a67b-108ff6a101f4",
+    "VITE_APP_ID": "UmWQrrhGfRQTwWJa6RJNWH",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "Desain Ko Iki",
+    "VITE_FRONTEND_FORGE_API_KEY": "6WfdoWDKYq6ogBTyhF9DXv",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-db-user",
+  "test_command": "pnpm test"
+}
